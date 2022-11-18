@@ -3,6 +3,7 @@ import "./App.css";
 import FilterBar from "./components/FilterBar";
 import AnimalCard from "./components/AnimalCard";
 import { useState } from "react";
+import { Row, Col } from "antd";
 import animalData from "./animalData.json";
 
 function App() {
@@ -12,9 +13,18 @@ function App() {
   return (
     <div className="App">
       <FilterBar animals={animals} setAnimals={setAnimals}></FilterBar>
-      {animals.map((animal) => (
-        <AnimalCard animal={animal} key={animal.name}></AnimalCard>
-      ))}
+
+      <Row type="flex" gutter={[16, 16]}>
+        {animals.map((animal) => (
+          <Col span={8}>
+            <AnimalCard
+              className="animalCard"
+              animal={animal}
+              key={animal.name}
+            ></AnimalCard>
+          </Col>
+        ))}
+      </Row>
     </div>
   );
 }

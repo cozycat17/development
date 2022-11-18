@@ -7,9 +7,16 @@ function AnimalCard(props) {
   return (
     <Card
       title={props.animal.name}
-      cover={<img src={props.animal.image_link}></img>}
+      cover={
+        <div style={{ overflow: "hidden", height: "40vh", padding: "1em" }}>
+          <img
+            alt="example"
+            style={{ height: "100%" }}
+            src={props.animal.image_link}
+          />
+        </div>
+      }
       actions={[<PlusOutlined />]}
-      style={{ width: 300 }}
     >
       <div className="cardContent">
         <p>
