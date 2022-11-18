@@ -32,6 +32,10 @@ function AnimalCard(props) {
           <b>Life expectancy (years): </b>
           {props.animal.lifespan}
         </p>
+        <p>
+          <b>Weight: </b>
+          {props.animal.weight_max}
+        </p>
       </div>
     </Card>
   );
