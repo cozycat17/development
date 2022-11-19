@@ -60,13 +60,21 @@ function FilterBar(props) {
   };
 
   const animalTypes = ["Mammal", "Bird", "Reptile", "Amphibian"];
-
+  const activeTimes = ["Diurnal", "Nocturnal"];
   return (
     <div className="filterBarContainer">
       <div>
         Animal type:
         {animalTypes.map((t) => (
           <Checkbox onChange={(e) => onChange(e, t, (a) => a.animal_type == t)}>
+            {t}
+          </Checkbox>
+        ))}
+      </div>
+      <div>
+        Active time:
+        {activeTimes.map((t) => (
+          <Checkbox onChange={(e) => onChange(e, t, (a) => a.active_time == t)}>
             {t}
           </Checkbox>
         ))}
