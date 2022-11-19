@@ -20,11 +20,11 @@ result of clicking a filter checkbox.
 ### Organization of Components
 
 The app is orginized as follows:
-App
-....FilterBar (handles all filtering/sorting)
-....AnimalList (displays a list of animal cards)
-........AnimalCard (diplays key animal information)
-....SideCart (shows the average lifespan of selected animals)
+App \
+....FilterBar (handles all filtering/sorting) \
+....AnimalList (displays a list of animal cards) \
+........AnimalCard (diplays key animal information) \
+....SideCart (shows the average lifespan of selected animals) \
 
 ### How Data is Passed Down Through Components
 
