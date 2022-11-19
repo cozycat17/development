@@ -63,21 +63,29 @@ function FilterBar(props) {
   const activeTimes = ["Diurnal", "Nocturnal"];
   return (
     <div className="filterBarContainer">
-      <div>
-        Animal type:
-        {animalTypes.map((t) => (
-          <Checkbox onChange={(e) => onChange(e, t, (a) => a.animal_type == t)}>
-            {t}
-          </Checkbox>
-        ))}
+      <div className="checkGroup">
+        <b>Animal type:</b>
+        <div>
+          {animalTypes.map((t) => (
+            <Checkbox
+              onChange={(e) => onChange(e, t, (a) => a.animal_type == t)}
+            >
+              {t}
+            </Checkbox>
+          ))}
+        </div>
       </div>
-      <div>
-        Active time:
-        {activeTimes.map((t) => (
-          <Checkbox onChange={(e) => onChange(e, t, (a) => a.active_time == t)}>
-            {t}
-          </Checkbox>
-        ))}
+      <div className="checkGroup">
+        <b>Active time:</b>
+        <div>
+          {activeTimes.map((t) => (
+            <Checkbox
+              onChange={(e) => onChange(e, t, (a) => a.active_time == t)}
+            >
+              {t}
+            </Checkbox>
+          ))}
+        </div>
       </div>
 
       <Dropdown menu={{ items }} trigger={["click"]}>

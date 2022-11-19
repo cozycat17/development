@@ -2,3 +2,10 @@
   padding: 2em;
   display: flex;
 }
+
+.checkGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-right: 4em;
+}
