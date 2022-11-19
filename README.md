@@ -24,7 +24,7 @@ App \
 ....FilterBar (handles all filtering/sorting) \
 ....AnimalList (displays a list of animal cards) \
 ........AnimalCard (diplays key animal information) \
-....SideCart (shows the average lifespan of selected animals) \
+....SideCart (shows the average lifespan of selected animals)
 
 ### How Data is Passed Down Through Components
 
@@ -34,7 +34,7 @@ On the top level there is:
 2. A dictionary of filters name -> filter function
 3. A list of agregated animals (zoo)
 
--AnimalList and FilterBar use the first 2 states to control the visible cards
+-AnimalList and FilterBar use the first 2 states to control the visible cards\
 -AnimalCard and SideCart use the zoo state to keep track of aggregated state.
 
 ### How the User Triggers State Changes
