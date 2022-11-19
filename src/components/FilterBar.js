@@ -11,9 +11,7 @@ function FilterBar(props) {
     data.sort((a, b) => opposite * (a.lifespan - b.lifespan));
     props.setAnimals(data);
     setSortMethod(
-      opposite < 0
-        ? "Life expectancy: high to low"
-        : "Life expectancy: low to high"
+      opposite < 0 ? "Lifespan: high to low" : "Lifespan: low to high"
     );
   };
 
@@ -36,15 +34,11 @@ function FilterBar(props) {
       key: "1",
     },
     {
-      label: (
-        <div onClick={() => sortByLife(1)}>Life expectancy: low to high</div>
-      ),
+      label: <div onClick={() => sortByLife(1)}>Lifespan: low to high</div>,
       key: "3",
     },
     {
-      label: (
-        <div onClick={() => sortByLife(-1)}>Life expectancy: high to low</div>
-      ),
+      label: <div onClick={() => sortByLife(-1)}>Lifespan: high to low</div>,
       key: "4",
     },
   ];
