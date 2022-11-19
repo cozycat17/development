@@ -4,6 +4,12 @@ import { PlusOutlined } from "@ant-design/icons";
 import "./AnimalCard.css";
 
 function AnimalCard(props) {
+  const addToZoo = () => {
+    props.setZoo([
+      { name: props.animal.name, lifespan: props.animal.lifespan },
+      ...props.zoo,
+    ]);
+  };
   return (
     <Card
       title={props.animal.name}
@@ -16,7 +22,7 @@ function AnimalCard(props) {
           />
         </div>
       }
-      actions={[<PlusOutlined />]}
+      actions={[<PlusOutlined onClick={addToZoo} />]}
     >
       <div className="cardContent">
         <p>
