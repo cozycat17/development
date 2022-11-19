@@ -1,10 +1,11 @@
 import "./FilterBar.css";
 import { DownOutlined } from "@ant-design/icons";
-import { Dropdown, Space } from "antd";
+import { Dropdown, Space, Checkbox } from "antd";
 import { useState } from "react";
 
 function FilterBar(props) {
   const [sortMethod, setSortMethod] = useState("");
+
   const sortByLife = (opposite) => {
     var data = [...props.animals];
     data.sort((a, b) => opposite * (a.lifespan - b.lifespan));
@@ -48,8 +49,29 @@ function FilterBar(props) {
     },
   ];
 
+  const onChange = (e, type, filter) => {
+    var copy = { ...props.filters };
+    if (e.target.checked) {
+      copy[type] = filter;
+    } else {
+      delete copy[type];
+    }
+    props.setFilters(copy);
+  };
+
+  const animalTypes = ["Mammal", "Bird", "Reptile", "Amphibian"];
+
   return (
     <div className="filterBarContainer">
+      <div>
+        Animal type:
+        {animalTypes.map((t) => (
+          <Checkbox onChange={(e) => onChange(e, t, (a) => a.animal_type == t)}>
+            {t}
+          </Checkbox>
+        ))}
+      </div>
+
       <Dropdown menu={{ items }} trigger={["click"]}>
         <a onClick={(e) => e.preventDefault()}>
           <Space>

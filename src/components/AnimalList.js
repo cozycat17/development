@@ -3,8 +3,8 @@ import { Row, Col } from "antd";
 
 function AnimalList(props) {
   const filter = (animals) => {
-    for (let i = 0; i < props.filters.length; i++) {
-      animals = animals.filter(props.filters[i]);
+    for (const [key, value] of Object.entries(props.filters)) {
+      animals = animals.filter(value);
     }
     return animals;
   };

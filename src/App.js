@@ -10,7 +10,7 @@ function App() {
   const { Content, Sider } = Layout;
 
   const [animals, setAnimals] = useState(animalData);
-  const [filters, setFilters] = useState([]);
+  const [filters, setFilters] = useState({});
 
   return (
     <div className="App">
