@@ -8,13 +8,29 @@ function SideCart(props) {
       ).toFixed(1)
     : 0;
 
+  const consolidate = (arr) => {
+    const counts = {};
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i].name in counts) {
+        counts[arr[i].name] = counts[arr[i].name] + 1;
+      } else {
+        counts[arr[i].name] = 1;
+      }
+    }
+    return counts;
+  };
+
+  const counts = consolidate(props.zoo);
+
   return (
     <div className="sideBar">
       <h1>How long will your zoo last?</h1>
       Average lifespan: {average} years
       <ol>
-        {props.zoo.map((animal) => (
-          <li>{animal.name}</li>
+        {Object.entries(counts).map(([k, v]) => (
+          <li>
+            {k} x {v}
+          </li>
         ))}
       </ol>
     </div>

@@ -13,7 +13,6 @@ function App() {
   const [animals, setAnimals] = useState(animalData);
   const [filters, setFilters] = useState({});
   const [zoo, setZoo] = useState([]);
-  console.log(zoo);
 
   return (
     <div className="App">
