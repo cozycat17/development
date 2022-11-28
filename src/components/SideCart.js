@@ -20,6 +20,23 @@ function SideCart(props) {
     return counts;
   };
 
+  const remove = (key) => {
+    const arr = [...props.zoo];
+    var location = -1;
+
+    for (var i = 0; i < arr.length; i++) {
+      console.log("DEVLOG", arr[i]);
+      if (arr[i].name == key) {
+        location = i;
+
+        break;
+      }
+    }
+
+    arr.splice(location, 1);
+    props.setZoo(arr);
+  };
+
   const counts = consolidate(props.zoo);
 
   return (
@@ -29,10 +46,11 @@ function SideCart(props) {
       <ol>
         {Object.entries(counts).map(([k, v]) => (
           <li>
-            {k} x {v}
+            {k} x {v} <button onClick={() => remove(k)}>-</button>
           </li>
         ))}
       </ol>
+      <button onClick={() => props.setZoo([])}>Reset</button>
     </div>
   );
 }

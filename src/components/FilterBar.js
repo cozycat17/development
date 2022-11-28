@@ -1,10 +1,19 @@
 import "./FilterBar.css";
 import { DownOutlined } from "@ant-design/icons";
-import { Dropdown, Space, Checkbox } from "antd";
+import { Dropdown, Space, Checkbox, Button } from "antd";
 import { useState } from "react";
 
 function FilterBar(props) {
   const [sortMethod, setSortMethod] = useState("");
+  const defaultCheckedState = {
+    Mammal: false,
+    Bird: false,
+    Reptile: false,
+    Amphibian: false,
+    Diurnal: false,
+    Nocturnal: false,
+  };
+  const [checkedBoxes, setCheckedBoxes] = useState(defaultCheckedState);
 
   const sortByLife = (opposite) => {
     var data = [...props.animals];
@@ -47,9 +56,20 @@ function FilterBar(props) {
     var copy = { ...props.filters };
     if (e.target.checked) {
       copy[type] = filter;
+      var newObj = {
+        ...checkedBoxes,
+      };
+      newObj[type] = true;
+      setCheckedBoxes(newObj);
     } else {
+      var newObj = {
+        ...checkedBoxes,
+      };
+      newObj[type] = false;
+      setCheckedBoxes(newObj);
       delete copy[type];
     }
+    console.log("DEVLOG", checkedBoxes);
     props.setFilters(copy);
   };
 
@@ -62,6 +82,7 @@ function FilterBar(props) {
         <div>
           {animalTypes.map((t) => (
             <Checkbox
+              checked={checkedBoxes[t]}
               onChange={(e) => onChange(e, t, (a) => a.animal_type == t)}
             >
               {t}
@@ -74,6 +95,7 @@ function FilterBar(props) {
         <div>
           {activeTimes.map((t) => (
             <Checkbox
+              checked={checkedBoxes[t]}
               onChange={(e) => onChange(e, t, (a) => a.active_time == t)}
             >
               {t}
@@ -90,6 +112,15 @@ function FilterBar(props) {
           </Space>
         </a>
       </Dropdown>
+      <Button
+        onClick={() => {
+          props.setFilters({});
+          setCheckedBoxes(defaultCheckedState);
+        }}
+        className="reset-button"
+      >
+        Reset
+      </Button>
     </div>
   );
 }

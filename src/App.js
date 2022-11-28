@@ -28,7 +28,7 @@ function App() {
             bottom: 0,
           }}
         >
-          <SideCart zoo={zoo}></SideCart>
+          <SideCart zoo={zoo} setZoo={setZoo}></SideCart>
         </Sider>
         <Layout>
           <Content
