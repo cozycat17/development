@@ -2,7 +2,7 @@
 
 ### Link to Deployed Website
 
-`https://cozycat17.github.io/development/`
+[https://cozycat17.github.io/development/](https://cozycat17.github.io/development/)
 
 ### Goal and Value of the Application
 
