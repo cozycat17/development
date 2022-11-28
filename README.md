@@ -17,6 +17,11 @@ Errors: Errors may happen when too many filters are applied and no options appea
 isn't technically an error but it will be obvious what happened because it will be a direct
 result of clicking a filter checkbox.
 
+---
+
+Layout and Hierarchy:
+The two different filtering categories are seperated by spacing using a margin. The main display is of 3 cards per row in a grid layout. Each card has an internal hierarchy, where the picture and name are highlighed by their size.
+
 ### Organization of Components
 
 The app is orginized as follows:
